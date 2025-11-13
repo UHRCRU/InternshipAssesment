@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
   "dev:free": "ts-node src/index.ts",
-    "build": "tsc -p .",
-    "start": "node dist/index.js",
+  "build": "tsc -p .",
+  "start": "node dist/src/index.js",
+  "start:debug": "ls -la; ls -la dist || true; ls -la dist/src || true; node dist/src/index.js",
     "prisma": "prisma",
     "migrate": "prisma migrate dev --name init",
     "generate": "prisma generate",
