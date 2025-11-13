@@ -1,0 +1,20 @@
+GET http://localhost:3001/products
+
+###
+GET http://localhost:3001/products?category=Apparel
+
+###
+GET http://localhost:3001/products/1
+
+###
+POST http://localhost:3001/products
+Content-Type: application/json
+
+{
+  "name": "Water Bottle",
+  "imageUrl": "https://picsum.photos/seed/bottle/400/400",
+  "price": 15.25,
+  "category": "Fitness",
+  "inStock": true,
+  "variants": ["Blue", "Red"]
+}
