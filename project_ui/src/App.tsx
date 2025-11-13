@@ -43,7 +43,14 @@ const HomePage: React.FC<{ category?: string }> = ({ category }) => {
     setLoading(true);
     fetchProducts(category)
       .then(setProducts)
-      .catch(e => setError(String(e)))
+      .catch(e => {
+        const msg = String(e ?? 'Unknown error');
+        if (msg.toLowerCase().includes('failed to fetch')) {
+          setError(msg + '\nTip: If this site is hosted, set VITE_API_URL to your public API URL and redeploy.');
+        } else {
+          setError(msg);
+        }
+      })
       .finally(() => setLoading(false));
   }, [category]);
   if (loading) return <p className="center">Loading…</p>;
